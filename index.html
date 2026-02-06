@@ -1,236 +1,343 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="ja">
 <head>
-  <meta charset="UTF-8" />
-  <title>佐伯小遥 | 研究紹介</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="形式意味論・数理論理学・計算機科学の交差領域で、日本語自動推論システム lightblue の対話的開発環境 express を研究・開発しています。" />
-  <link rel="stylesheet" href="style.css" />
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Research Summary | lightblue / express</title>
+  <meta name="description" content="形式意味論に基づく日本語自動推論システム lightblue と、その開発環境 express の研究紹介" />
+  <link rel="stylesheet" href="./style.css" />
 </head>
 <body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <div class="brand">
+        <div class="brand-title">Research Summary</div>
+        <div class="brand-sub">lightblue / express（形式意味論 × 型理論 × Web実装）</div>
+      </div>
+      <nav class="nav">
+        <a href="#overview">研究概要</a>
+        <a href="#background">理論的背景</a>
+        <a href="#llm">LLMとの関係</a>
+        <a href="#problem">背景と課題</a>
+        <a href="#contrib">貢献</a>
+      </nav>
+    </div>
+  </header>
 
-<header class="hero">
-  <div class="hero-inner">
-    <h1>佐伯 小遥</h1>
-    <p class="tagline">
-      形式意味論に基づく日本語自動推論のための対話的開発環境 <span class="mono">express</span>
-    </p>
-    <p class="keywords">
-      Keywords: 計算言語学 / 形式文法 / 自然言語処理 / 形式意味論 / 数理論理学 / 自然言語推論 / 可視化 / Haskell / Yesod
-    </p>
-  </div>
-</header>
-
-<main>
-
-  <section class="section" id="about">
-    <h2>研究テーマ</h2>
-    <p>
-      私は、<strong>理論言語学・数理論理学・計算機科学</strong>の交差領域において、
-      形式意味論に基づく日本語自動推論システム <em>lightblue</em> の研究開発を行っています。
-      特に、統語解析・意味解析・型検査・証明探索といった複数段階にまたがる推論を、
-      <strong>人間が理解・検証・デバッグできる形</strong>で扱うための開発環境設計に取り組んでいます。
-    </p>
-  </section>
-
-  <!-- ★追加：思想のセクション -->
-  <section class="section" id="philosophy">
-    <h2>研究思想：なぜ「理論 × 実装」なのか</h2>
-
-    <p>
-      私が立っているのは、<strong>「自然科学としての言語学」</strong>という立場です。
-      チョムスキーに始まる生成文法は、文法を「人間の言語能力（内在する仕組み）」として捉え、
-      言語の構造に普遍的な制約があることを理論として提示してきました。
-      また、モンタギューに始まる形式意味論は、文の意味を形式体系として定義し、
-      統語構造に従って意味が合成される仕組みを与えることで、言語直観に照らして検証可能な枠組みを提供してきました。
-    </p>
-
-    <div class="split">
-      <div class="card">
-        <h3>理論（先に出して、反例に耐える）</h3>
-        <p class="muted">
-          まず理論を提示し、その理論がどこまで言語現象を説明できるかを、反例と照合しながら磨く。
-          「先出し」で後から反証に耐える検証は厳しいが、そのぶん説明力を鍛えられる。
+  <main>
+    <section class="hero">
+      <div class="container">
+        <h1>人間が「理解・検証・デバッグ」できる<br/>日本語自動推論の開発環境をつくる</h1>
+        <p class="lead">
+          私は、理論言語学・数理論理学・計算機科学の交差領域において、
+          形式意味論に基づく日本語自動推論システム <b>lightblue</b> の研究開発を行っています。
+          特に、統語解析・意味解析・型検査・証明探索といった複数段階にまたがる推論を、
+          <b>人間が扱える形（説明可能・再現可能・対話的）</b>にするための開発環境設計に取り組んでいます。
         </p>
+
+        <div class="chips">
+          <span class="chip">CCG</span>
+          <span class="chip">Dependent Type Semantics (DTS)</span>
+          <span class="chip">Dependent Type Theory (DTT)</span>
+          <span class="chip">Automated Theorem Proving</span>
+          <span class="chip">Haskell / Yesod</span>
+          <span class="chip">Interactive Dev Environment</span>
+        </div>
+
+        <div class="callout">
+          <div class="callout-title">CyberAgent エキスパート認定に向けて</div>
+          <p class="callout-text">
+            サイバーエージェントの「エキスパート認定」は、AI等の要素技術研究成果・学会採択等を総合的に査定し、
+            将来性や事業親和性も含めて評価される制度です。私は、<b>言語理解を“理論と証明”で実装する</b>という軸で、
+            LLM時代にこそ重要になる「説明可能な推論基盤」と「開発環境」を構築しています。
+          </p>
+          <p class="note">※制度概要の出典：CyberAgent 採用ページ</p>
+        </div>
       </div>
-      <div class="card">
-        <h3>実装（動くシステムで検証する）</h3>
-        <p class="muted">
-          理論を「動く計算」として実装し、現実の推論過程・失敗例・性能を観察する。
-          理論と実装が往復できて初めて、意味理解の機構を実質的に検証できる。
-        </p>
+    </section>
+
+    <!-- 1. 研究概要 -->
+    <section id="overview" class="section">
+      <div class="container">
+        <h2>1. 研究概要</h2>
+
+        <div class="grid two">
+          <div class="card">
+            <h3>対象：日本語自動推論システム lightblue</h3>
+            <p>
+              lightblue は、理論言語学に基づく日本語自動推論システムです。
+              統語理論として CCG、意味理論として依存型意味論（DTS）を採用し、
+              定理自動証明器と接続して証明探索を行うことで、照応解決や前提束縛を含む複雑な言語現象の解析・推論を実現します。
+            </p>
+            <p class="small">
+              lightblue の推論は「統語・意味解析 → 型検査 → 証明探索」の多段階で構成され、
+              各段階で理論的に許容される複数候補（分岐）を保持しながら進行します。
+            </p>
+          </div>
+
+          <div class="card">
+            <h3>焦点：開発環境 express（対話的に分岐を“操作”する）</h3>
+            <p>
+              本研究（NLP2026）は、lightblue の開発環境 <b>express</b> を提案します。
+              express は推論フロー全体に <b>対話的操作性</b>を導入し、
+              さらに <b>事前計算＋キャッシュ</b>により、特定条件下での推論検証と開発効率化を支援します。
+            </p>
+            <p class="small">
+              重要なのは「結果の可視化」ではなく、推論過程に内在する <b>探索</b> と <b>分岐選択</b> を
+              <b>操作単位として明示化</b>し、開発者が段階的に制御できるようにした点です。
+            </p>
+          </div>
+        </div>
+
+        <div class="highlight">
+          <b>キーワード：</b>「推論を“全列挙で回す”」から「推論を“対話的に進める”」へ（実行モデルの再設計）
+        </div>
       </div>
-    </div>
+    </section>
 
-    <div class="quote">
-      <p class="quote-text">
-        データセットに当てるだけでなく、理論を先に提示し、反例に耐える形で検証できることが重要だと考えています。
-      </p>
-      <p class="quote-meta">— 「先出し／後出し」の検証観（数理言語学の立場）</p>
-    </div>
+    <!-- 2. 理論的背景 -->
+    <section id="background" class="section alt">
+      <div class="container">
+        <h2>2. 本研究の理論的背景</h2>
 
-    <p class="note">
-      こうした立場から、私は「言語の意味を理解する」とは何かを、統語・意味・証明の構造として扱い、
-      人間の直観と照合しながら検証できる推論システムを対象にしています。
-    </p>
+        <div class="card">
+          <h3>チョムスキー：language faculty（言語能力）＝生得的な計算システム</h3>
+          <p>
+            チョムスキーの系譜では、言語は「外から観察できる表現の集合」ではなく、
+            <b>心（脳）内の計算システム</b>として捉えられます。これは「言語能力（language faculty）」という枠組みにまとまり、
+            人間が少量の入力から急速に言語を獲得し、無限の表現を生成できる理由を、
+            <b>内部の構造（規則・制約・操作）</b>として説明しようとする立場です。
+          </p>
 
-    <div class="callout subtle">
-      <p class="callout-title">研究拠点について</p>
-      <p>
-        私は、言語学・論理学・哲学・自然言語処理が合流する<strong>数理言語学</strong>の研究プログラムのもとで研究しています。
-        とくに、<strong>形式統語（CCG）・形式意味（依存型意味論）・自動推論（定理証明）・実装</strong>を一貫して扱い、
-        「記号列と意味がどう対応するか」を統一的に説明しうる枠組みを、理論とシステムの両方で前進させる研究環境は希少です。
-      </p>
-    </div>
-  </section>
+          <div class="grid two">
+            <div>
+              <h4>FLB / FLN（広義 / 狭義の言語能力）</h4>
+              <p class="small">
+                Hauser–Chomsky–Fitch (2002) は、言語能力を
+                広義（FLB：感覚運動・概念意図なども含む）と、
+                狭義（FLN：言語特有の中核計算）に分けて議論します。
+              </p>
+            </div>
+            <div>
+              <h4>ミニマリスト：Mergeと階層構造</h4>
+              <p class="small">
+                ミニマリスト的には、言語の中核は階層構造を作る基本操作（Merge）で説明されます。
+                「言語＝統計ではなく、説明できる計算体系」という方向性が強く出ます。
+              </p>
+            </div>
+          </div>
 
-  <section class="section" id="positioning">
-    <h2>LLMとの関係：対立ではなく「役割の違い」</h2>
-    <p>
-      近年、自然言語処理の主流は大規模言語モデル（LLM）へ移行しています。
-      LLM は柔軟で強力な生成・要約・対話が可能であり、実応用でも極めて重要な技術です。
-      一方で本研究が重視するのは、<strong>推論の根拠（どの統語構造・どの照応解決・どの証明）を追跡できること</strong>、
-      そして<strong>成立条件・不成立条件を含めて検証可能であること</strong>です。
-    </p>
-
-    <div class="split">
-      <div class="card">
-        <h3>形式推論（本研究の軸）</h3>
-        <ul>
-          <li>意味を「構造」として扱い、推論の根拠を追跡できる</li>
-          <li>成立条件・不成立条件を含めて理論的に検証できる</li>
-          <li>説明可能性・再現性の高いデバッグができる</li>
-        </ul>
+          <p class="small">
+            私の研究は、この思想（言語＝計算システム／説明可能性／構造）を、
+            自然言語推論の実装（CCG・DTS・型検査・証明探索）と、その開発環境（express）に落とし込み、
+            <b>理論仮説を計算機上で検証できる基盤</b>を拡張する取り組みです。
+          </p>
+        </div>
       </div>
-      <div class="card">
-        <h3>LLM（重要な周辺技術）</h3>
-        <ul>
-          <li>大規模データに基づく柔軟な生成・要約・対話が得意</li>
-          <li>多数のタスクを統一的に扱える</li>
-          <li>一方で、内部根拠の追跡や反証可能性は課題になりやすい</li>
-        </ul>
+    </section>
+
+    <!-- 3. LLMとの関係 -->
+    <section id="llm" class="section">
+      <div class="container">
+        <h2>3. LLMとの関係性</h2>
+
+        <div class="grid two">
+          <div class="card">
+            <h3>「LLMでできるじゃん？」への私の立場</h3>
+            <p>
+              私の研究ではしばしば「それ、LLMで良くない？」というコメントが来ます。
+              ここで重要なのは、<b>目的関数が違う</b>という点です。
+            </p>
+            <ul class="bullets">
+              <li><b>LLM：</b>出力の流暢さ・当てやすさ（予測性能）</li>
+              <li><b>本研究：</b>推論過程の妥当性・説明可能性・再現可能性（検証可能な“理由”）</li>
+            </ul>
+            <p class="small">
+              特に lightblue は、統語・意味を明示的に構成し、型検査と証明探索によって
+              推論の成立／不成立を「証明オブジェクト」として扱うため、
+              <b>どの仮定の下で、どこで失敗したのか</b>を理論の言葉で追跡できます。
+            </p>
+          </div>
+
+          <div class="card">
+            <h3>チョムスキー系の批判点（LLMは“説明”ではなく“当てもの”になりがち）</h3>
+            <p>
+              参照いただいた記事の論点と近い形で、チョムスキーらは
+              「人間の心は巨大な統計エンジンではなく、少量の情報から説明を作る」
+              という方向で、LLMの“言語観”を批判的に捉えます。
+            </p>
+            <ul class="bullets">
+              <li><b>説明可能性：</b>なぜそうなるかの理論・証明が出ない</li>
+              <li><b>反事実検証：</b>仮定を固定して枝分かれを追うのが難しい</li>
+              <li><b>再現性：</b>失敗例を切り出し、同条件で共有するのが難しい</li>
+            </ul>
+            <p class="small">
+              したがって本研究は「LLMの置き換え」ではなく、LLM時代に不足しがちな
+              <b>検証可能な推論基盤</b>と、そのための<b>開発環境</b>を提供する位置づけです。
+              これは、LLMの周辺に“形式的な監査・デバッグ層”を作るイメージにも接続できます。
+            </p>
+          </div>
+        </div>
+
+        <div class="note-block">
+          <div class="note-title">参考（あなたが貼ってくれた記事の位置づけ）</div>
+          <p class="small">
+            上の議論は、あなたが示した「チョムスキー観点からのLLM批判（統計依存・意味理解・ブラックボックス性など）」を、
+            研究紹介の流れに自然に組み込むための要約です。
+          </p>
+        </div>
       </div>
-    </div>
+    </section>
 
-    <p class="note">
-      私は、形式推論の強み（根拠・反証可能性・デバッグ可能性）を保ったまま、
-      実開発で扱える形に落とし込むことに集中しています。これが、私が「理論 × 実装」をやる理由です。
-    </p>
-  </section>
+    <!-- 4. 背景と課題 -->
+    <section id="problem" class="section alt">
+      <div class="container">
+        <h2>4. 本研究の背景と課題（NLP2026論文ベース）</h2>
 
-  <section class="section" id="problem">
-    <h2>背景と課題</h2>
-    <p>
-      <em>lightblue</em> の推論は、統語構造の曖昧性や照応解決などによって多数の分岐を伴い、
-      推論過程全体の探索空間が指数的に増大します。
-      従来の「全列挙型」の実行方式では、関心のない経路まで含めて計算されてしまい、
-      特定条件下での検証や失敗原因の特定が困難でした。
-    </p>
-    <img src="assets/figure1.png" alt="推論フロー（例）" class="figure">
-  </section>
+        <div class="card">
+          <h3>課題：多段推論 × 多分岐が、検証と開発を壊す</h3>
+          <p>
+            lightblue の推論は、統語・意味解析、型検査、証明探索という複数段階から成り、
+            各段階で理論的に許容される候補を保持しながら進行します。
+            その結果、統語曖昧性と文脈依存の型検査・証明探索が組み合わさることで、
+            推論候補は文が進むほど急激に増大します（論文では最大 <b>2·(i·j)^k</b> の探索回数として説明）。 
+          </p>
+          <p class="small">
+            従来の「全列挙型の実行方式」では、関心のない経路まで一律に計算するため計算コストが高く、
+            さらに結果が混在して提示されるため、特定の分岐に注目した検証や途中段階の柔軟な調査が困難になります。
+          </p>
+        </div>
 
-  <section class="section" id="contribution">
-    <h2>本研究の貢献</h2>
-    <ul class="bullets">
-      <li><strong>推論を「一括実行」ではなく「分岐を伴う探索過程」として再定義</strong></li>
-      <li>統語構造と型検査結果の分岐を <strong>操作単位</strong>として明示化</li>
-      <li>推論過程全体を <strong>対話的に制御・検証</strong>できる開発環境 <span class="mono">express</span> を実装</li>
-    </ul>
-  </section>
+        <div class="grid two">
+          <div class="card">
+            <h3>設計の転換：推論を“分岐選択の列”として再定義</h3>
+            <p>
+              本研究は、推論過程に内在する分岐点そのものを明示化し、
+              それらを開発者が段階的に操作できる単位として設計の中心に据えます。
+              具体的には、(1) 統語解析段階の統語構造選択、(2) 型検査段階の型検査結果（照応解決の分岐）選択を、
+              対話的に選べるようにします。
+            </p>
+          </div>
 
-  <section class="section" id="demo">
-    <h2>開発環境 <span class="mono">express</span></h2>
+          <div class="card">
+            <h3>実装要点：部分再計算＋事前計算キャッシュで応答性を確保</h3>
+            <p>
+              express は Haskell の Webフレームワーク Yesod で実装され、lightblue本体（Haskell）と密結合で呼び出せます。
+              サーバ側で推論状態を段階的に保持し、ユーザの選択に応じて必要部分だけを再計算。
+              さらに段階ごとの事前計算とキャッシュ保持により、対話操作の待ち時間を低減します。
+            </p>
+          </div>
+        </div>
 
-    <p>
-      <strong>express</strong> は、日本語自動推論システム <em>lightblue</em> に統合された Web ベースの開発環境です。
-      <strong>推論フロー（統語・意味解析、型検査、証明探索）に対話的な操作性</strong>を導入し、
-      事前計算とキャッシュ機構により、特定条件下での検証を実用的に行えるようにします。
-    </p>
+        <div class="media">
+          <div class="media-title">図・デモの貼り場所（おすすめ）</div>
+          <p class="small">
+            下にスクショや動画を貼ると「研究が動いている」感が一気に出ます。
+            例：<b>図1（推論フローの分岐爆発）</b>、<b>図3（分岐を選びながら進むUI）</b>、<b>付録図5（操作フロー）</b>。
+          </p>
 
-    <div class="video-container">
-      <video controls muted playsinline poster="assets/video_poster.png">
-        <source src="assets/demo.mp4" type="video/mp4">
-        お使いのブラウザは動画タグに対応していません。
-      </video>
-    </div>
-    <p class="caption">
-      デモ：統語構造・型検査結果の分岐を選択しながら推論を進め、必要に応じて検証対象を絞り込む
-    </p>
+          <!-- YouTubeを貼るならこのiframeを使ってください -->
+          <!--
+          <div class="video">
+            <iframe
+              src="https://www.youtube-nocookie.com/embed/XXXXXXXXXXX"
+              title="express demo"
+              frameborder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              allowfullscreen></iframe>
+          </div>
+          -->
 
-    <div class="grid3">
-      <div class="feature">
-        <h3>部分文字列解析</h3>
-        <p>関心のある部分文字列に対して統語・意味解析結果を即座に確認できます。</p>
+          <div class="img-grid">
+            <figure class="figure">
+              <img src="./assets/fig1.png" alt="推論フロー（分岐爆発）" />
+              <figcaption>図：統語解析・型検査・証明探索にまたがる推論フロー（例）</figcaption>
+            </figure>
+            <figure class="figure">
+              <img src="./assets/fig-ui.png" alt="express UI" />
+              <figcaption>図：統語構造／型検査結果を選択しながら推論を進めるUI</figcaption>
+            </figure>
+          </div>
+        </div>
       </div>
-      <div class="feature">
-        <h3>分岐の対話的選択</h3>
-        <p>統語構造や型検査結果の候補を保持し、注目する分岐だけを追跡できます。</p>
+    </section>
+
+    <!-- 5. 貢献 -->
+    <section id="contrib" class="section">
+      <div class="container">
+        <h2>5. 本研究の貢献（NLP2026論文ベース）</h2>
+
+        <div class="grid two">
+          <div class="card">
+            <h3>研究貢献：推論“結果”ではなく推論“過程”を操作・検証対象にした</h3>
+            <ul class="bullets">
+              <li>
+                従来の全列挙型実行では困難だった、<b>特定条件下での推論検証</b>を可能に（分岐を固定して追跡）
+              </li>
+              <li>
+                推論過程を「探索＋分岐選択」として再定式化し、<b>開発者の試行錯誤（デバッグ）に最適化</b>
+              </li>
+              <li>
+                事前計算・キャッシュにより、<b>対話操作の応答性</b>を確保
+              </li>
+            </ul>
+          </div>
+
+          <div class="card">
+            <h3>プロダクト貢献：現場で“困るところ”に刺さる機能を実装</h3>
+            <ul class="bullets">
+              <li>
+                <b>部分文字列解析：</b>入力文の一部に対して統語・意味解析結果を即座に確認（局所調査に効く）
+              </li>
+              <li>
+                <b>証明探索クエリのエクスポート：</b>選択した推論経路に対応するクエリを切り出し、
+                定理自動証明器側での失敗を再現・共有可能に（手作業再構築を不要に）
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="card">
+          <h3>技術スタック（論文に基づくコア）</h3>
+          <div class="tech">
+            <div><b>Language / FP:</b> Haskell</div>
+            <div><b>Web:</b> Yesod（サーバで推論・状態管理／クライアントで可視化・分岐入力）</div>
+            <div><b>NLP (Syntax):</b> CCG（CYKチャートパーシング）</div>
+            <div><b>Semantics:</b> Dependent Type Semantics (DTS) / Dependent Type Theory (DTT)</div>
+            <div><b>Proving:</b> 定理自動証明器（wani）との接続・証明探索</div>
+            <div><b>Engineering:</b> 段階的保持、部分再計算、事前計算キャッシュ</div>
+          </div>
+
+          <div class="highlight">
+            <b>アピールポイント：</b>
+            形式意味論（DTS）× 型理論（DTT）× 定理証明 × Web開発環境（Yesod）を、
+            <b>“分岐を伴う自然言語推論のデバッグ可能性”</b>という一点で統合した実装は極めて珍しく、
+            「研究＝動く環境」として提示できるのが強みです。
+          </div>
+        </div>
+
+        <div class="refs">
+          <h3>参考文献（抜粋）</h3>
+          <ol>
+            <li>本ページの中核（express）：NLP2026 提出論文（佐伯ほか）</li>
+            <li>言語能力（FLB/FLN）：Hauser, Chomsky &amp; Fitch (2002)</li>
+            <li>ミニマリスト（言語＝計算システム）：Chomsky “The Minimalist Program”</li>
+            <li>LLM批判（統計的当てもの vs 説明）：Chomsky, Roberts &amp; Watumull (2023) “The False Promise of ChatGPT”</li>
+          </ol>
+        </div>
       </div>
-      <div class="feature">
-        <h3>クエリのExport/Import</h3>
-        <p>証明探索クエリを切り出して共有・再現でき、デバッグの再現性を高めます。</p>
+    </section>
+
+    <footer class="footer">
+      <div class="container footer-inner">
+        <div class="small">
+          © Research Summary | lightblue / express
+        </div>
+        <div class="small">
+          Contact: （メールや所属ページへのリンクをここに）
+        </div>
       </div>
-    </div>
-  </section>
-
-  <section class="section" id="publications">
-    <h2>研究成果</h2>
-    <ul class="pubs">
-      <li>
-        <span class="pub-year">NLP2026</span>
-        <span class="pub-title">Yesodによる日本語推論システム lightblue の開発環境の構築</span>
-        <span class="pub-links">
-          <a href="#" aria-label="PDFリンク（後で追加）">PDF（準備中）</a>
-        </span>
-      </li>
-      <li>
-        <span class="pub-year">NLP2025</span>
-        <span class="pub-title">日本語推論システム lightblue の開発環境構築に向けて</span>
-        <span class="pub-links">
-          <a href="#" aria-label="PDFリンク（後で追加）">PDF（準備中）</a>
-        </span>
-      </li>
-    </ul>
-  </section>
-
-  <section class="section" id="future">
-    <h2>将来性・応用可能性</h2>
-    <p>
-      推論の「根拠」を追跡できる形式推論は、説明可能で信頼できる言語理解の基盤になります。
-      私は、形式推論の価値（根拠・反証可能性・デバッグ可能性）を維持しつつ、
-      実装基盤として扱える形に落とし込むことで、
-      <strong>LLMと形式推論の統合</strong>や、開発者向けAIツールへつなげることを目指しています。
-    </p>
-    <p>
-      あわせて、国際的な場での議論と共同研究の機会を重ねることを重視しており、現在次のような発表・研究計画を進めています。
-    </p>
-    <ul class="bullets">
-      <li>
-        <strong>ACL System Demonstrations 2026</strong>、<strong>BriGap</strong>、<strong>ESSLLI Student Session</strong> への投稿を準備中です。
-      </li>
-      <li>
-        2026年6月には、フランスの<strong>ボルドー大学</strong>にて 1 ヶ月間の研究留学を予定しており、
-        形式意味論と自動推論の枠組みを国際的な共同研究の中でさらに磨いていく計画です。
-      </li>
-    </ul>
-  </section>
-
-</main>
-
-<footer class="footer">
-  <div class="footer-inner">
-    <div class="footer-left">
-      <div class="mono">Koharu Saeki</div>
-      <div class="muted">Formal Semantics / Logic / CS</div>
-    </div>
-    <div class="footer-right">
-      <a href="https://github.com/yourname">GitHub</a>
-      <span class="dot">•</span>
-      <a href="mailto:your@email.com">Email</a>
-    </div>
-  </div>
-</footer>
-
-<script src="script.js"></script>
+    </footer>
+  </main>
 </body>
 </html>
