@@ -101,6 +101,27 @@
     background: #fff;
     color: var(--muted);
   }
+
+  .achievements{
+    margin-top: 28px;
+    padding: 20px 0;
+    border-top: 1px solid var(--line);
+  }
+  .achievements-title{
+    margin: 0 0 12px;
+    font-size: 18px;
+    font-weight: 800;
+    color: var(--text);
+  }
+  .achievements-list{
+    margin: 0;
+    padding-left: 1.4em;
+    list-style: disc;
+  }
+  .achievements-list li{
+    margin: 8px 0;
+    line-height: 1.6;
+  }
   
   .section{
     padding: 34px 0;
