@@ -3,15 +3,14 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Research Summary | lightblue / express</title>
-  <meta name="description" content="佐伯小遥の研究紹介：NLP2026採択。形式意味論に基づく日本語自動推論システム lightblue の開発環境 express を設計・実装。専門外の方にもわかりやすく。" />
+  <title>Research Summary | express</title>
   <link rel="stylesheet" href="./style.css" />
 </head>
 <body>
   <header class="site-header">
     <div class="container header-inner">
       <div class="brand">
-        <div class="brand-title">Research Summary</div>
+        <div class="brand-title">佐伯 小遥 / Research Portfolio</div>
       </div>
       <nav class="nav">
         <a href="#achievements">主な実績</a>
@@ -27,19 +26,15 @@
   <main>
     <section class="hero">
       <div class="container">
-        <h1>人間が「理解・検証・デバッグ」できる<br/>日本語自動推論の開発環境を設計・実装</h1>
+        <h1>人間が「理解・検証・デバッグ」できる<br/>日本語自動推論の開発環境の構築</h1>
         <p class="lead">
-          理論言語学・数理論理学・計算機科学の交差領域で、
-          形式意味論に基づく日本語自動推論システム
-          <a href="https://github.com/DaisukeBekki/lightblue" target="_blank" rel="noopener noreferrer"><b>lightblue</b></a>
-          向けの開発環境 <b>express</b> を設計・実装しています。
-          統語解析・意味解析・型検査・証明探索にまたがる推論を、
-          <b>説明可能・再現可能・対話的</b>に扱える形にし、文法開発者が段階的に制御できる環境を構築しました（<b>NLP2026 採択</b>）。
+          理論言語学・数理論理学・計算機科学の交差領域で、形式意味論に基づく日本語自動推論システム<a href="https://github.com/DaisukeBekki/lightblue" target="_blank" rel="noopener noreferrer"><b>lightblue</b></a> の研究開発をしています。
+          特に lightblue の文法開発環境 <b>express</b> を開発していて、統語解析・意味解析・型検査・証明探索にまたがる推論を、<b>説明可能・再現可能・対話的</b>に扱える形にし、文法開発者が段階的に制御できる環境を構築しました（佐伯ら，2026）。
         </p>
 
         <div class="chips">
-          <span class="chip">Natural Language Processing</span>
           <span class="chip">Computational Linguistics</span>
+          <span class="chip">Natural Language Processing</span>
           <span class="chip">Formal Grammar</span>
           <span class="chip">Interactive Development Environment</span>
           <span class="chip">Haskell / Yesod</span>
@@ -51,10 +46,11 @@
         <div id="achievements" class="achievements">
           <h2 class="achievements-title">主な実績</h2>
           <ul class="achievements-list">
-            <li><b>NLP2026 採択</b> — Yesod による日本語推論システム lightblue の開発環境の構築（言語処理学会年次大会）</li>
+            <li><b>論文①NLP2026</b> — <a href="NLP2026_Saeki.pdf">Yesod による日本語推論システム lightblue の開発環境の構築</a>（言語処理学会第32回年次大会）</li>
+            <li><b>論文②NLP2025</b> — <a href="https://www.anlp.jp/proceedings/annual_meeting/2025/pdf_dir/B2-3.pdf">日本語推論システム lightblue の開発環境構築に向けて</a>（言語処理学会第31回年次大会）</li>
             <li><b>科研費・CREST</b> — JST CREST（JPMJCR2565）・JSPS 科研費（JP23H03452）による研究支援の下で実施</li>
-            <li><b>国際投稿予定</b> — ACL System Demonstrations 2026、BriGap、ESSLLI Student Session へ投稿準備中</li>
-            <li><b>研究留学</b> — 2026年6月、ボルドー大学（フランス）に 1 ヶ月の研究留学を予定</li>
+            <li><b>国際学会への投稿予定</b> — <a href="https://2025.aclweb.org/calls/system_demonstration/">ACL System Demonstrations 2026</a>、 <a href="https://brigap-workshop.github.io/">BriGap</a>、 <a href="https://2026.esslli.eu/courses-workshops-accepted/student-session-call.html">ESSLLI Student Session</a> へ投稿準備中</li>
+            <li><b>研究留学</b> — 2026年6月、ボルドー大学に1ヶ月の研究留学を予定</li>
           </ul>
         </div>
       </div>
@@ -71,11 +67,11 @@
               <a href="https://github.com/DaisukeBekki/lightblue" target="_blank" rel="noopener noreferrer"><b>lightblue</b></a> は、理論言語学に基づく日本語自動推論システムです。
               統語理論として 組合せ範疇文法（CCG）、意味理論として依存型意味論（DTS）を採用し、
               定理自動証明器と接続して証明探索を行うことで、照応解決や前提束縛を含む複雑な言語現象の解析・推論を実現します。<br>
-              私は lightblue 向けに <b>開発環境 express</b> を設計・実装しました。
-              express は推論フロー全体に <b>対話的操作性</b>を導入し、
+              私は lightblue の <b>文法開発環境 express</b> を開発しています。
+              express は推論フロー全体に <b>対話的操作性</b> を導入し、
               <b>事前計算＋キャッシュ機構</b>により特定条件下での推論検証と開発効率化を実現しています。
-              「結果の可視化」ではなく、推論過程の <b>探索</b> と <b>分岐選択</b> を
-              <b>操作単位として明示化</b>し、開発者が段階的に制御できる点が特徴です（NLP2026 論文）。
+              単なる推論結果の可視化ではなく、推論過程の <b>探索</b> と <b>分岐選択</b> を
+              <b>操作単位として明示化</b>し、開発者が段階的に制御できる点が特徴です（佐伯ら，2026）。
             </p>
           </div>
         </div>
@@ -95,7 +91,7 @@
             <ul class="bullets">
                 <li>人間は、限られた入力しか与えられないにもかかわらず、短期間で言語を獲得する</li>
                 <li>さらに、有限の知識から無限の文を生成し、これまで聞いたことのない文でも理解・生成できる</li>
-                <li>したがって、言語の仕組みは「大量データからの統計」ではなく、内部にある規則・制約・構造によって説明されるべきである（Chomsky, 1980; 2000）</li>
+                <li>したがって、言語の仕組みは「大量データからの統計」ではなく、内部にある規則・制約・構造によって説明されるべきである</li>
             </ul>
             私の研究はこの思想に基づき、
             自然言語推論を <b>統語解析・意味解析・型検査・証明探索</b> によって <b>形式化</b> し、
@@ -114,21 +110,21 @@
         <div class="grid two">
           <div class="card">
             <p>
-              私の研究ではしばしば「それ、LLMで良くない？」というコメントが来ます。
+              私の研究ではしばしば「LLMで良いのでは」というコメントが来るので、このセクションで説明させていただきます。
               ここで重要なのは、<b>目的関数が違う</b>という点です。
             </p>
             <ul class="bullets">
-              <li><b>LLM：</b>出力の流暢さ・当てやすさ（予測性能）</li>
-              <li><b>本研究：</b>推論過程の妥当性・説明可能性・再現可能性（検証可能な“理由”）</li>
+              <li><b>LLM：</b>出力の流暢さ・当てやすさ・予測性能</li>
+              <li><b>本研究：</b>推論過程の<b>妥当性・説明可能性</b></li>
             </ul>
             <p>
-              特に lightblue は、統語・意味を明示的に構成し、型検査と証明探索によって
-              推論タスクを数学的な証明問題として扱うため、
-              <b>どの仮定の下で、どこで失敗したのか</b>を理論の言葉で追跡できます。
+              lightblue では、統語・意味を明示的に構成し、型検査と証明探索によって
+              推論問題を数学的な証明タスクとして扱うため、
+              <b>どの仮定の下で、どこで失敗したのか</b>を数学的な計算によって追跡できます。
             </p>
             <p>
               参照いただいた記事の論点と近い形で、チョムスキーらは
-              「人間の心は巨大な統計エンジンではなく、少量の情報から説明を作る」
+              人間の言語機能は巨大な統計エンジンではなく、少量の情報から説明を作る
               という方向で、LLMの“言語観”を批判的に捉えます。
             </p>
             <ul class="bullets">
@@ -157,13 +153,12 @@
             推論候補は文が進むほど急激に増大します。 
           
             従来の「全列挙型の実行方式」では、ユーザの関心のない経路まで一律に計算するため計算コストが高く、
-            さらに結果が混在して提示されるため、特定の分岐に注目した検証や途中段階の柔軟な調査が困難になります。
+            さらに結果が混在して提示されるため、特定の分岐に注目した検証や途中段階の柔軟な調査が困難となっていました。
           </p>
         </div>
 
         <div class="grid two">
           <div class="card">
-            <h3>設計の転換：推論過程を“分岐選択の列”として再定義</h3>
             <p>
               そこで、本研究は、推論過程に内在する分岐点そのものを明示化し、
               それらをユーザが段階的に操作できる単位として設計の中心に据えます。
@@ -173,9 +168,8 @@
           </div>
 
           <div class="card">
-            <h3>実装要点：部分再計算＋事前計算キャッシュで応答性を確保</h3>
             <p>
-              express は Haskell の Webフレームワーク Yesod で実装され、lightblue本体（Haskell）と密結合で呼び出せます。
+              express は Haskell の Webフレームワーク Yesod で実装され、lightblue本体と密結合で呼び出せます。
               サーバ側で推論状態を段階的に保持し、ユーザの選択に応じて必要部分だけを再計算します。
               さらに段階ごとの事前計算とキャッシュ保持により、ユーザの対話操作の待ち時間を低減します。
             </p>
@@ -183,11 +177,13 @@
         </div>
 
         <div class="media">
+            <div class="media-title">Before</div>
             <figure class="figure">
                 <img src="lightblue_flow.png" alt="推論フロー（before）" />
                 <figcaption>図：推論フロー（before）：探索回数は、𝑘 個の入力文に対し，各文で 𝑖 通りの統語構造と各統語構造あたり 𝑗 通りの型検査結果を独立に選ぶため，最大 2 · (𝑖 · 𝑗)𝑘 回となる</figcaption>
             </figure>
 
+            <div class="media-title">After</div>
             <figure class="figure">
                 <img src="express_flow.jpg" alt="推論フロー（after）" />
                 <figcaption>図：推論フロー（after）：統語構造／型検査結果を選択しながら推論を進めていく</figcaption>
@@ -199,16 +195,15 @@
     <!-- 5. 貢献 -->
     <section id="contrib" class="section">
       <div class="container">
-        <h2>5. 本研究の貢献（NLP2026 論文ベース）</h2>
+        <h2>5. 本研究の貢献（[佐伯ら，2026] に基づく）</h2>
         <p>
           本研究では、推論「結果」ではなく推論「過程」を操作・検証対象に据え、次の貢献を実現しました。
         </p>
         <div class="grid two">
           <div class="card">
-            <h3>研究貢献：推論“結果”ではなく推論“過程”を操作・検証対象にした</h3>
             <ul class="bullets">
               <li>
-                従来の全列挙型実行では困難だった<b>特定条件下での推論検証</b>を可能に（分岐を固定して追跡）
+                従来の全列挙型実行では困難だった<b>特定条件下での推論検証</b>を可能に
               </li>
               <li>
                 推論過程を「探索＋分岐選択」として再定式化し、<b>開発者の試行錯誤（デバッグ）に最適化</b>
@@ -216,22 +211,53 @@
               <li>
                 事前計算・キャッシュにより、<b>対話操作の応答性</b>を確保
               </li>
-        </ul>
-        <p>
-          形式意味論（DTS）× 型理論（DTT）× 定理証明 × Web開発環境（Yesod）を、
-          「分岐を伴う自然言語推論のデバッグ可能性」という一点で統合した実装は極めて珍しく、
-          研究＝動く環境として提示できる点が強みです。
-        </p>
+            </ul>
+          </div>
+        </div>
+
+        <div class="media">
+          <div class="media-title">Demo</div>
+          <p class="small">
+            
+          </p>
+          <div class="video">
+            <iframe
+              src="https://github.com/user-attachments/assets/2b51569e-1c64-4394-9aae-ce3753fc6afc"
+              title="express demo"
+              frameborder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              allowfullscreen></iframe>
           </div>
         </div>
 
         <div class="refs">
-          <h3>参考文献（抜粋）</h3>
+          <h3>参考文献</h3>
           <ol>
-            <li><b>本研究の中心</b>：佐伯・富田・松原・別木「Yesodによる日本語推論システム lightblue の開発環境の構築」言語処理学会第32回年次大会 (NLP2026) 採択</li>
-            <li>言語能力（FLB/FLN）：Hauser, Chomsky &amp; Fitch (2002)</li>
-            <li>ミニマリスト（言語＝計算システム）：Chomsky “The Minimalist Program”</li>
-            <li>LLM批判（統計的当てもの vs 説明）：Chomsky, Roberts &amp; Watumull (2023) “The False Promise of ChatGPT”</li>
+            <li>
+              佐伯 小遥・富田 朝・松原 舞・戸次 大介 (2026)．
+              「Yesod による日本語推論システム lightblue の開発環境の構築」．
+              言語処理学会第32回年次大会 発表論文集（NLP2026）．
+            </li>
+            <li>
+              Chomsky, N. (1965).
+              <em>Aspects of the Theory of Syntax</em>.
+              Cambridge, MA: MIT Press.
+            </li>
+            <li>
+              Chomsky, N. (2000).
+              <em>New Horizons in the Study of Language and Mind</em>.
+              Cambridge: Cambridge University Press.
+            </li>
+            <li>
+              Hauser, M. D., Chomsky, N., &amp; Fitch, W. T. (2002).
+              The faculty of language: What is it, who has it, and how did it evolve?
+              <em>Science</em>, 298(5598), 1569–1579.
+            </li>
+            <li>
+              Chomsky, N., Roberts, I., &amp; Watumull, J. (2023).
+              The false promise of ChatGPT.
+              <em>The New York Times</em>, March 8, 2023.
+            </li>
           </ol>
         </div>
       </div>
